@@ -14,7 +14,9 @@ class Listener{
                 id: dataPlaylist.id,
                 name: dataPlaylist.name,
             }
-            const playlist = { ...data, songs };
+            const playlist = {
+                playlist: {...data, songs}
+            };
             const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify(playlist));
             console.log(result);
         }catch (e) {
